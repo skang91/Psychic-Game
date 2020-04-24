@@ -22,20 +22,28 @@ var updateLetterToGuess = function () {
     letterToGuess = letters[Math.floor(Math.random() * letters.length)];
 };
 
+//update funfunions
+updateGuessesLeft();
+updateGuessesSoFar();
 
-//what is this for?
-//updateLetterToGuess();
-//updateGuessesLeft();
 
-
-//review this
+//function for keyboard input
 document.onkeydown = function() {
+    
+    //reduce guess by one
     guessesLeft--;
+
     var letters = event.key.toLowerCase();
+    
+    //add guess letters
     guessesSoFar.push(letters);
+
+    //update fucntion
     updateGuessesLeft();
     updateGuessesSoFar();
 
+
+    //if function for add by 1 wins and losses
     if (letters === letterToGuess) {
         wins++;
         document.querySelector("#wins").innerHTML = wins;
